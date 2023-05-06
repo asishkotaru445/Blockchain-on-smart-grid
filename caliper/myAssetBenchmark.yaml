@@ -1,0 +1,66 @@
+test:
+    name: basic-contract-benchmark
+    description: test benchmark
+    workers:
+      number: 2
+    rounds:
+      - label: ReadMeter
+        description: Read Meter benchmark
+        txDuration: 10
+        rateControl:
+          type: fixed-load
+          opts:
+            transactionLoad: 2
+        workload:
+          module: workload/ReadMeter.js
+          arguments:
+            assets: 10
+            contractId: basic
+      - label: MeterExists
+        description: Check MeterExists benchmark
+        txDuration: 10
+        rateControl:
+          type: fixed-load
+          opts:
+            transactionLoad: 2
+        workload:
+          module: workload/MeterExists.js
+          arguments:
+            assets: 10
+            contractId: basic
+      - label: UpdateMeter
+        description: Update Meter benchmark
+        txDuration: 10
+        rateControl:
+          type: fixed-load
+          opts:
+            transactionLoad: 2
+        workload:
+          module: workload/UpdateMeter.js
+          arguments:
+            assets: 10
+            contractId: basic
+      - label: RemoveMeter
+        description: Remove Meter benchmark
+        txDuration: 10
+        rateControl:
+          type: fixed-load
+          opts:
+            transactionLoad: 2
+        workload:
+          module: workload/RemoveMeter.js
+          arguments:
+            assets: 10
+            contractId: basic
+      - label: AddMeter
+        description: Add Meter benchmark
+        txDuration: 10
+        rateControl:
+          type: fixed-load
+          opts:
+            transactionLoad: 2
+        workload:
+          module: workload/AddMeter.js
+          arguments:
+            assets: 10
+            contractId: basic
